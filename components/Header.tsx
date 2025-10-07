@@ -47,7 +47,7 @@ export default function Header() {
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-gray-900">Mentee Platform</h1>
+              <h1 className="text-lg font-bold text-gray-900">Mentee Prac Platform</h1>
             </div>
           </div>
 
