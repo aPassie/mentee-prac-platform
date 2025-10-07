@@ -250,14 +250,20 @@ export default function AdminAnalyticsPage() {
                 const progressPercentage = userStat.total > 0 ? (userStat.completed / userStat.total) * 100 : 0;
                 
                 return (
-                  <div key={userStat.userId} className="p-4 bg-gray-50 rounded-lg">
+                  <button
+                    key={userStat.userId}
+                    onClick={() => router.push(`/admin/analytics/mentee/${userStat.userId}`)}
+                    className="w-full p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors text-left cursor-pointer"
+                  >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
                           #{index + 1}
                         </div>
                         <div>
-                          <p className="font-medium text-gray-900">{userStat.userName}</p>
+                          <p className="font-medium text-gray-900 hover:text-purple-600 transition-colors">
+                            {userStat.userName}
+                          </p>
                           <p className="text-xs text-gray-600">
                             {userStat.completed} / {userStat.total} questions completed
                           </p>
@@ -267,6 +273,7 @@ export default function AdminAnalyticsPage() {
                         <p className="text-lg font-bold text-gray-900">
                           {Math.round(progressPercentage)}%
                         </p>
+                        <p className="text-xs text-purple-600">View Details →</p>
                       </div>
                     </div>
                     <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
@@ -275,7 +282,7 @@ export default function AdminAnalyticsPage() {
                         style={{ width: `${progressPercentage}%` }}
                       />
                     </div>
-                  </div>
+                  </button>
                 );
               })}
             </div>
