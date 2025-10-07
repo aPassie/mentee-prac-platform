@@ -70,13 +70,13 @@ export default function DashboardPage() {
           id: 'maths' as const,
           name: 'Maths for ML',
           description: 'Master mathematics for machine learning',
-          isActive: true,
+          isActive: false,
         },
         {
           id: 'webdev' as const,
           name: 'Web Development',
           description: 'Debug and fix HTML/CSS code challenges',
-          isActive: true,
+          isActive: false,
         },
       ];
 
@@ -159,13 +159,13 @@ export default function DashboardPage() {
       id: 'maths' as const,
       name: 'Maths for ML',
       description: 'Master mathematics for machine learning',
-      isActive: true,
+      isActive: false,
     },
     {
       id: 'webdev' as const,
       name: 'Web Development',
       description: 'Debug and fix HTML/CSS code challenges',
-      isActive: true,
+      isActive: false,
     },
   ];
 

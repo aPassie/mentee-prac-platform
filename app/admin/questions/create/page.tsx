@@ -83,8 +83,9 @@ export default function AdminCreateQuestionPage() {
               <p>• Problem description</p>
               <p>• Input/Output format</p>
               <p>• Constraints</p>
-              <p>• Example cases</p>
-              <p>• 20 hidden test cases</p>
+              <p>• Example cases with explanations</p>
+              <p>• 20 hidden test cases (required)</p>
+              <p>• Optional starter code templates</p>
             </div>
           </div>
 
@@ -138,29 +139,36 @@ export default function AdminCreateQuestionPage() {
   "order": 1,
   "isActive": true,
   "deadline": Timestamp,
-  "createdAt": Timestamp,
-  "updatedAt": Timestamp,
+  "createdAt": serverTimestamp(),
+  "updatedAt": serverTimestamp(),
   "createdBy": "admin-uid",
   "content": {
-    "problemDescription": "Write a function...",
-    "constraints": "1 <= n <= 10^5",
-    "inputFormat": "First line contains...",
-    "outputFormat": "Print the result...",
-    "exampleInputs": ["5", "10"],
-    "exampleOutputs": ["25", "100"],
-    "explanations": ["5^2 = 25", "10^2 = 100"],
+    "problemDescription": "Given an array of integers, find the sum...",
+    "constraints": "• 1 <= n <= 10^5\\n• -10^9 <= arr[i] <= 10^9",
+    "inputFormat": "First line: integer n\\nSecond line: n space-separated integers",
+    "outputFormat": "Print a single integer - the sum of all elements",
+    "exampleInputs": ["5\\n1 2 3 4 5", "3\\n-1 0 1"],
+    "exampleOutputs": ["15", "0"],
+    "explanations": [
+      "Sum = 1+2+3+4+5 = 15",
+      "Sum = -1+0+1 = 0"
+    ],
     "hiddenTestCases": [
-      {"input": "3", "expectedOutput": "9"},
-      // ... 19 more test cases
+      {"input": "5\\n1 2 3 4 5", "expectedOutput": "15"},
+      {"input": "3\\n-1 0 1", "expectedOutput": "0"},
+      {"input": "1\\n100", "expectedOutput": "100"},
+      // ... 17 more test cases (20 total recommended)
     ],
     "starterCode": {
-      "python": "def solution(n):\\n    # Your code here\\n    pass",
-      "javascript": "function solution(n) {\\n    // Your code here\\n}",
-      "cpp": "#include <iostream>\\nusing namespace std;\\n\\nint main() {\\n    // Your code here\\n    return 0;\\n}",
-      "java": "public class Solution {\\n    public static void main(String[] args) {\\n        // Your code here\\n    }\\n}"
+      "python": "def sum_array(arr):\\n    # Write your code\\n    pass\\n\\nif __name__ == '__main__':\\n    n = int(input())\\n    arr = list(map(int, input().split()))\\n    print(sum_array(arr))",
+      "javascript": "function sumArray(arr) {\\n    // Write your code\\n    return 0;\\n}\\n// Input handling code...",
+      "cpp": "#include <iostream>\\n#include <vector>\\nusing namespace std;\\n\\nlong long sumArray(vector<int>& arr) {\\n    // Write your code\\n    return 0;\\n}\\n\\nint main() {\\n    int n;\\n    cin >> n;\\n    vector<int> arr(n);\\n    for(int i=0; i<n; i++) cin >> arr[i];\\n    cout << sumArray(arr) << endl;\\n    return 0;\\n}",
+      "java": "import java.util.*;\\n\\npublic class Solution {\\n    public static long sumArray(int[] arr) {\\n        // Write your code\\n        return 0;\\n    }\\n    public static void main(String[] args) {\\n        Scanner sc = new Scanner(System.in);\\n        int n = sc.nextInt();\\n        int[] arr = new int[n];\\n        for(int i=0; i<n; i++) arr[i] = sc.nextInt();\\n        System.out.println(sumArray(arr));\\n    }\\n}"
     }
   }
-}`}
+}
+
+See ICP_QUESTION_TEMPLATE.md for complete guide with 20 test cases example`}
             </pre>
           </div>
 
