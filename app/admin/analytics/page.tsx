@@ -106,7 +106,7 @@ export default function AdminAnalyticsPage() {
         passedSubmissions,
         failedSubmissions,
         subjectStats,
-        userProgress: userProgress.slice(0, 10), // Top 10 users
+        userProgress: userProgress, // All users
       });
 
     } catch (error) {
@@ -241,9 +241,9 @@ export default function AdminAnalyticsPage() {
           ))}
         </div>
 
-        {/* Top Users */}
+        {/* All Users */}
         <div className="bg-white rounded-xl border-2 border-gray-200 p-6">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">Top Performers</h2>
+          <h2 className="text-xl font-bold text-gray-900 mb-6">All Users</h2>
           {analytics.userProgress.length > 0 ? (
             <div className="space-y-3">
               {analytics.userProgress.map((userStat, index) => {

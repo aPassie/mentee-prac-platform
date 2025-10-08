@@ -45,7 +45,7 @@ export default function ICPQuestionDetailPage() {
     }
   }, [user, params.id]);
 
-  const loadData = async () => {
+  const loadData = async (preserveCode: boolean = false) => {
     if (!user || !db || !params.id) return;
 
     try {
@@ -60,12 +60,14 @@ export default function ICPQuestionDetailPage() {
         } as Question;
         setQuestion(questionData);
         
-        // Load starter code from question if available
-        const content = questionData.content as CodingQuestionContent;
-        if (content.starterCode && content.starterCode[language]) {
-          setCode(content.starterCode[language] || defaultCodeTemplates[language]);
-        } else {
-          setCode(defaultCodeTemplates[language]);
+        // Load starter code from question if available, but only if not preserving current code
+        if (!preserveCode) {
+          const content = questionData.content as CodingQuestionContent;
+          if (content.starterCode && content.starterCode[language]) {
+            setCode(content.starterCode[language] || defaultCodeTemplates[language]);
+          } else {
+            setCode(defaultCodeTemplates[language]);
+          }
         }
       }
 
@@ -157,8 +159,8 @@ export default function ICPQuestionDetailPage() {
         setShowExplanation(true);
       }
 
-      // Reload submissions
-      await loadData();
+      // Reload submissions (preserve current code in editor)
+      await loadData(true);
 
     } catch (error) {
       console.error('Error submitting code:', error);
